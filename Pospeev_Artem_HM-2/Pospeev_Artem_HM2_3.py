@@ -20,7 +20,7 @@ for word in default_lst[1:-1]:  # срез списка со второго до
         else:
             str_stash += word[1:]  # в противном случае добавляем просто число
         default_lst[i] = str_stash
-        default_lst.insert(i, '"')  # добавляем ковычки ПЕРЕД числом
+        default_lst.insert(i, '"')  # добавляем ковычки ПОСЛЕ числа
         i += 1
 
     i += 1
