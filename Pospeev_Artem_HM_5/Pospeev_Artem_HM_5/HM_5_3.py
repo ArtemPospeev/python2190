@@ -15,11 +15,8 @@ from itertools import zip_longest
 
 
 def zipped_tutors(tut, klass):
-    for ind, rslt in enumerate(zip_longest(tut, klass, fillvalue=None)):
-        if ind < len(tut):
-            yield rslt
-        else:
-            break
+    for rslt in zip_longest(tut, klass[:len(tut)]):
+        yield rslt
 
 
 tutors = [
@@ -27,6 +24,9 @@ tutors = [
     'Дмитрий', 'Борис', 'Елена', 'Anton', 'Kirill'
 ]
 klasses = ['9А', '7В', '9Б', '9В', '8Б', '10А', '10Б', '9А']
+
+# zipped_tutors = (i for i in zip_longest(tutors, klasses[:len(tutors)]))  #тот же генератор, только без yield
+
 
 gen_with_klass_none = zipped_tutors(tutors, klasses)
 print(f'Task 3:\nType: {type(gen_with_klass_none)}')
