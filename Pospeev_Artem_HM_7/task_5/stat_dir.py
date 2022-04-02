@@ -40,5 +40,7 @@ for key, items in result_dct.items():  # Ключи те же, значения-
         ext_set.add(item[1])
     result_dct[key] = (len(items), list(ext_set))
 
+result_dct = dict(sorted(result_dct.items(), key=lambda x: x[0]))
+
 with open('summary.json', 'w+', encoding='utf-8') as f:
     dump(result_dct, f)
